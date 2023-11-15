@@ -3,6 +3,7 @@
     <% @posts.each do |post| %>
       <div class="col-md-4 mb-4">
         <div class="card">
+          <%= link_to image_tag(post.image.variant(resize: '500x500'), class: 'card-img-top' ), root_path %>
           <div class="card-body">
             <h5 class="card-title"><%= post.title %></h5>
             <p class="card-text"><%= post.content %></p>
