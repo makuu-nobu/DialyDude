@@ -75,5 +75,5 @@ gem 'pry-rails'
 gem 'devise'
 gem 'mini_magick'
 gem 'image_processing', '~>1.2'
-gem 'bootstrap', '~> 5.0'
-gem 'sassc-rails'
+gem 'bootstrap', '~> 5.3'
+gem 'sassc-rails', "~>2.1"

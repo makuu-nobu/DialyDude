@@ -261,7 +261,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bootstrap (~> 5.0)
+  bootstrap (~> 5.3)
   capybara
   debug
   devise
@@ -273,7 +273,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.0)
-  sassc-rails
+  sassc-rails (~> 2.1)
   selenium-webdriver
   sprockets-rails
   stimulus-rails
