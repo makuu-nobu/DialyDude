@@ -1,3 +1,27 @@
+a {
+    text-decoration: none;
+}
+
 .custom-width {
     width: 80%;
+}
+
+.navbar-togler {
+    color: white;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+body {
+    padding-top: 80px;
+}
+
+.image-width {
+    width: 60%;
+}
+
+.underline-punish {
+    text-decoration-style: none;
 }
