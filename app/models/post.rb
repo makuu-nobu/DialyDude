@@ -11,6 +11,10 @@ class Post < ApplicationRecord
     validates :category_id, numericality: { other_than: 1 }
     validates :month_id, numericality: { other_than: 1 }
 
+    def self.ranking
+        joins(:count).order('counts.count Desc')
+    end
+
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :category
     belongs_to :month
