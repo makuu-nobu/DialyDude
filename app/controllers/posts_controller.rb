@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:edit, :show, :update]
+    before_action :move_to_index, except: [:index, :show]
     def index
-        @posts = Post.all
+        @posts = Post.includes(:user).order("created_at DESC")
     end
 
     def new
@@ -57,5 +58,11 @@ class PostsController < ApplicationController
 
     def set_post
         @post = Post.find(params[:id])        
+    end
+
+    def move_to_index
+        unless user_signed_in?
+            redirect_to root_path            
+        end
     end
 end

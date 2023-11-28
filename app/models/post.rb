@@ -4,6 +4,13 @@ class Post < ApplicationRecord
     belongs_to :user
     has_one :count, dependent: :destroy
 
+    validates :image, presence: true
+    validates :title, presence: true
+    validates :subtitle, presence: true
+    validates :content, presence: true
+    validates :category_id, numericality: { other_than: 1 }
+    validates :month_id, numericality: { other_than: 1 }
+
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :category
     belongs_to :month
