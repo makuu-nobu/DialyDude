@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :set_post, only: [:edit, :show, :update]
     def index
         @posts = Post.all
     end
@@ -18,9 +19,24 @@ class PostsController < ApplicationController
     end
 
     def show
-        @post = Post.find(params[:id])
         update_view_count(@post)
+    end
 
+    def edit     
+    end
+
+    def update
+        if @post.update(post_params)
+            redirect_to post_path(@post.id)            
+        else
+            render :edit, status: :unprocessable_entity
+        end        
+    end
+
+    def destroy
+        post = Post.find(params[:id])
+        post.destroy
+        redirect_to root_path
     end
 
     private
@@ -37,5 +53,9 @@ class PostsController < ApplicationController
     def count_build(post)
         @count = Count.new(post_id: post.id)
         @count.save
+    end
+
+    def set_post
+        @post = Post.find(params[:id])        
     end
 end
