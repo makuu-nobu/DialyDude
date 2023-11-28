@@ -25,3 +25,8 @@ body {
 .underline-punish {
     text-decoration-style: none;
 }
+
+.custom-image-size {
+    width: auto; /* 任意の幅 */
+    height: 400px; /* 高さを自動調整 */
+}
