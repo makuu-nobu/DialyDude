@@ -28,11 +28,14 @@
     <p>投稿日時<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
     <p>閲覧数: <%= @post.count&.count || 0 %></p>
 
+    <% if user_signed_in? %>
     <!-- 編集ボタン -->
     <%= link_to "編集", edit_post_path(@post), class: "btn btn-primary mr-5 mb-4" %>
 
     <!-- 削除ボタン -->
     <%= link_to "削除", post_path(@post), data: { turbo_method: :delete, confirm: "削除してもよろしいですか？" }, class: "btn btn-danger mr-5 mb-4" %>
 
+    <% end %>
+    
     <%= link_to "トップページに戻る", root_path, class: "btn btn-secondary mb-4" %>
 </div>
