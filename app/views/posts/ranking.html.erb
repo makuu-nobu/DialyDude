@@ -1,7 +1,9 @@
+<h1>閲覧数ランキング</h1>
 <div class="container mt-4">
     <div class="row">
-    <% posts.each do |post| %>
+    <% @posts.each do |post| %>
         <div class="col-md-4 mb-10">
+        <%= "閲覧数: #{post.count.count} 回" %>
         <%= link_to post_path(post.id) do %>
         <div class="card">
             <%= image_tag post.image.variant(resize: '500x500'), class: 'card-img-top underline-punish' %>

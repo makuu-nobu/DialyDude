@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:edit, :show, :update]
-    before_action :move_to_index, except: [:index, :show]
+    before_action :move_to_index, except: [:index, :show, :renking]
     def index
         @posts = Post.includes(:user).order("created_at DESC")
     end
@@ -38,6 +38,11 @@ class PostsController < ApplicationController
         post = Post.find(params[:id])
         post.destroy
         redirect_to root_path
+    end
+
+    def ranking
+        @posts = Post.ranking
+        
     end
 
     private
