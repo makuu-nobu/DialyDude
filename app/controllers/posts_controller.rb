@@ -53,7 +53,7 @@ class PostsController < ApplicationController
     def update_view_count(post)
         count = post.count || post.build_count
         count.increment!(:count)
-        #integer型の保有制限は256なので、のちに超過分を別カラムに記録する処理を考える
+        #integer型の保有制限は2147483647なので、のちに超過分を別カラムに記録する処理を考える 
     end
 
     def count_build(post)
