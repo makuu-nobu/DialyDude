@@ -1,19 +1,24 @@
-<h1>閲覧数ランキング</h1>
 <div class="container mt-4">
+    <h1 class="text-center mb-4">閲覧数ランキング</h1>
     <div class="row">
-    <% @posts.each do |post| %>
-        <div class="col-md-4 mb-10">
-        <%= "閲覧数: #{post.count.count} 回" %>
-        <%= link_to post_path(post.id) do %>
-        <div class="card">
-            <%= image_tag post.image, class: 'card-img-top underline-punish custom-image-size' %>
-            <div class="card-body">
-            <h5 class="card-title"><%= post.title %></h5>
-            <p class="card-text"><%= post.content %></p>
+        <% @posts.each_with_index do |post, index| %>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <%= image_tag post.image, class: 'card-img-top underline-punish custom-image-size' %>
+                    <div class="card-body">
+                        <span class="badge bg-primary">第<%= index + 1 %>位</span>
+                        <h5 class="card-title"><%= post.title %></h5>
+                        <p class="card-text"><%= post.content %></p>
+                        <p class="card-text"><strong>閲覧数:</strong> <%= post.count.count %> 回</p>
+                        <%= link_to post_path(post.id), class: 'btn btn-info' do %>
+                            詳細ページはこちらから！
+                        <% end %>
+                    </div>
+                </div>
             </div>
-        </div>
+            <% if index == 10 %>
+                <% break %>
+            <% end %>
         <% end %>
-        </div>
-    <% end %>
     </div>
 </div>

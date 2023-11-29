@@ -28,5 +28,5 @@ body {
 
 .custom-image-size {
     width: auto; /* 任意の幅 */
-    height: 400px; /* 高さを自動調整 */
+    height: 300px; /* 高さを自動調整 */
 }
